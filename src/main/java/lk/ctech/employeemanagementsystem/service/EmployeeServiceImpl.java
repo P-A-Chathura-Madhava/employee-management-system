@@ -21,4 +21,14 @@ public class EmployeeServiceImpl implements EmployeeService {
             return VarList.RSP_SUCCESS;
         }
     }
+
+    @Override
+    public String updateEmployee(Employee employee) {
+        if (employeeRepo.existsById(employee.getId())){
+            employeeRepo.save(employee);
+            return VarList.RSP_SUCCESS;
+        }else {
+            return VarList.RSP_NO_DATA_FOUND;
+        }
+    }
 }

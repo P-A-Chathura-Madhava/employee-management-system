@@ -4,4 +4,5 @@ import lk.ctech.employeemanagementsystem.model.Employee;
 
 public interface EmployeeService {
     String saveEmployee(Employee employee);
+    String updateEmployee(Employee employee);
 }
