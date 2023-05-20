@@ -38,4 +38,24 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepo.findAll();
     }
+
+    @Override
+    public Employee searchEmployeeById(int id) {
+        if (employeeRepo.existsById(id)){
+            Employee employee = employeeRepo.findById(id).orElse(null);
+            return employee;
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public String deleteEmployeeById(int id) {
+        if (employeeRepo.existsById(id)){
+            employeeRepo.deleteById(id);
+            return VarList.RSP_SUCCESS;
+        }else {
+            return VarList.RSP_NO_DATA_FOUND;
+        }
+    }
 }
