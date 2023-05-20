@@ -6,6 +6,8 @@ import lk.ctech.employeemanagementsystem.util.VarList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
@@ -30,5 +32,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         }else {
             return VarList.RSP_NO_DATA_FOUND;
         }
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeRepo.findAll();
     }
 }
